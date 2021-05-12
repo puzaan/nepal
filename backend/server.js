@@ -10,9 +10,12 @@ import express from 'express';
 import products from './data/products.js';
 import cors from 'cors';
 import dotencv from 'dotenv';
+import connectDB from './config/db.js';
+
 
 
 dotencv.config();
+connectDB();
 
 app.use(cors());
 
