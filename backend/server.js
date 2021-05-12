@@ -1,13 +1,18 @@
-const express = require("express");
-const products = require("./data/products");
-const cors = require("cors");
-const { request } = require("express");
-const dotencv = request('dotenv');
-dotencv.config();
+// const express = require("express");
+// const products = require("./data/products");
+// const cors = require("cors");
+// const { request } = require("express");
+// const dotencv = request('dotenv');
+
 const app = express();
 
+import express from 'express';
+import products from './data/products.js';
+import cors from 'cors';
+import dotencv from 'dotenv';
 
 
+dotencv.config();
 
 app.use(cors());
 
