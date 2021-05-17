@@ -1,4 +1,5 @@
 import mongooes from "mongoose";
+
 const orderSchema = mongooes.Schema(
   {
     user: {
@@ -13,9 +14,9 @@ const orderSchema = mongooes.Schema(
         image: { type: String, required: true },
         price: { type: Number, required: true },
         product: {
-          type: mongoose.Schema.Types.ObjectId,
+          type: mongooes.Schema.Types.ObjectId,
           required: true,
-          ref: "Product",
+          ref: 'Product',
         },
       },
     ],
@@ -25,10 +26,6 @@ const orderSchema = mongooes.Schema(
         required: true,
       },
       city: {
-        type: String,
-        required: true,
-      },
-      address: {
         type: String,
         required: true,
       },
@@ -44,6 +41,13 @@ const orderSchema = mongooes.Schema(
     paymentMethod: {
       type: String,
       required: true,
+    },
+    paymentResult:{
+      id:{type: String},
+      status: {type: String},
+      update_time: { type: String},
+      email_address: {type: String},
+
     },
     taxPrice: {
       type: Number,
@@ -73,6 +77,9 @@ const orderSchema = mongooes.Schema(
       required: true,
       default: false,
     },
+    deleveredAt:{
+      type: Date,
+    }
   },
   { timestamps: true }
 );
