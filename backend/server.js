@@ -21,13 +21,13 @@ connectDB();
 const app = express();
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
+// app.get("/", (req, res) => {
+//   res.send("hello world");
+// });
 
-app.get("/api/products", (req, res) => {
-  res.json(products);
-});
+// app.get("/api/products", (req, res) => {
+//   res.json(products);
+// });
 app.get("/", (req, res) => {
   res.send("API server is Working");
 });
