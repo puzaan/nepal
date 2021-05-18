@@ -59,6 +59,11 @@ const productSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
+    numReviews:{
+      type : Number,
+      require: true,
+      default: 0,
+    },
     countInStock: {
       type: Number,
       require: true,
