@@ -14,6 +14,7 @@ import connectDB from './config/db.js';
 import colors from 'colors';
 import {notFound, errorHandler} from './middlewares/errorMiddlewares.js'
 import productRouts from "./routes/productRoutes.js"
+import userRouts from "./routes/userRouts.js"
 
 
 
@@ -26,6 +27,7 @@ app.get("/", (req, res, next) => {
   res.send("API server is Working");
 });
 app.use("/api/products", productRouts);
+app.use("/api/users", userRouts);
 app.use(notFound);
 app.use(errorHandler);
 
