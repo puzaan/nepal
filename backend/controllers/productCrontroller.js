@@ -1,5 +1,6 @@
 
 import Product from "../models/productModel.js"
+import asyncHandler from "express-async-handler"
 
 /**
  * 
@@ -8,11 +9,12 @@ import Product from "../models/productModel.js"
  * access by public
  */
 
-const getProducts = async (req, res) => {
+const getProducts = asyncHandler(async (req, res) => {
     let products = await Product.find({});
   
     res.json(products);
-}
+    
+});
 
 
 /**
@@ -21,7 +23,7 @@ const getProducts = async (req, res) => {
  * get/api/product
  * access by public
  */
-const getProductById = async(req, res, next)=> {
+const getProductById = asyncHandler(async(req, res, next)=> {
     
     let product = await Product.findById(req.params.id);
     if(product){
@@ -31,6 +33,6 @@ const getProductById = async(req, res, next)=> {
         throw new Error('Products Not Founds');
     }
 
-}
+});
 
 export {getProducts, getProductById} ;
