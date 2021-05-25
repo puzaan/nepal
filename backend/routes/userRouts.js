@@ -1,14 +1,11 @@
 import express from "express"
+import {authUser} from "../controllers/userContoroller.js"
 
 
 const router = express.Router();
 
 
-router.get('/login', (req, res)=> {
-    res.send({
-        message: "Login Sucessfully"
-    })
-})
+router.post('/login', authUser);
 
 
 
