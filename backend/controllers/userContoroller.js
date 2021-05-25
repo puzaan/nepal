@@ -35,3 +35,13 @@ throw new Error('Invalid Email or password');
     //console.log('user doesnot exit in database')
 }
 })
+
+/**
+ * dec get user profile
+ * rout get/api/users/profile
+ * acces private
+ */
+
+const getUserProfile = catchAsync(async(req, res)=>{
+    const user = await User.findById();
+});
