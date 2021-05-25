@@ -1,6 +1,7 @@
 
 import User from '../models/userModel.js'
 import catchAsync from "express-async-handler"
+import generateToken from "../utils/generateToken.js"
 
 /**
  * @dec auth user and get token
@@ -25,16 +26,12 @@ if(user && (await user.matchPassword(password))){
         name:user.name,
         email: user.email,
         isAdmin: user.isAdmin,
-        token: null,
+        token: generateToken(user._id),
     })
 
 }else{
-return res.status(401);
+res.status(401);
 throw new Error('Invalid Email or password');
     //console.log('user doesnot exit in database')
 }
-
-    res.send({
-        message: "Login Sucessfully"
-    })
 })
